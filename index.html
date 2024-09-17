@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photography Website with Enhanced Animations</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #f0f8ff, #e0f7fa);
+            scroll-behavior: smooth;
+        }
+
+        /* Header and Menu Styles */
+        header {
+            background-color: #4fc3f7;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            animation: fadeInDown 1s ease-in-out;
+        }
+
+        header nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        header nav ul li {
+            margin: 0 15px;
+            position: relative;
+        }
+
+        header nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            padding: 10px;
+            position: relative;
+            transition: color 0.4s ease;
+        }
+
+        /* Menu hover animation - expanding underline */
+        header nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0%;
+            height: 2px;
+            background: white;
+            left: 50%;
+            bottom: 0;
+            transition: width 0.4s ease, left 0.4s ease;
+        }
+
+        header nav ul li a:hover::after {
+            width: 100%;
+            left: 0;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 100px 20px;
+            text-align: center;
+            min-height: 100vh;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease-in-out forwards;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 3rem;
+            margin-bottom: 15px;
+            background: linear-gradient(45deg, #64b5f6, #4db6ac);
+            -webkit-background-clip: text;
+            color: transparent;
+            animation: colorChange 4s infinite alternate;
+        }
+
+        /* Form Styles */
+        form {
+            margin-top: 20px;
+            text-align: left;
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            transition: box-shadow 0.3s ease;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            box-shadow: 0 0 8px rgba(100, 181, 246, 0.8);
+        }
+
+        /* Button Styles */
+        button {
+            padding: 12px 25px;
+            background: linear-gradient(45deg, #ff8a65, #ffb74d);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            font-size: 1.1rem;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(255, 138, 101, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #4fc3f7;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        /* Keyframes for Animations */
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            0% {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes colorChange {
+            0% {
+                background-position: 0% 50%;
+            }
+            100% {
+                background-position: 100% 50%;
+            }
+        }
+
+        /* Section Background Colors */
+        #home {
+            background: linear-gradient(135deg, #ffe0b2, #ffccbc);
+        }
+
+        #booking {
+            background: linear-gradient(135deg, #f1f8e9, #a5d6a7);
+        }
+
+        #contact {
+            background: linear-gradient(135deg, #e3f2fd, #90caf9);
+        }
+
+        #about {
+            background: linear-gradient(135deg, #ede7f6, #9575cd);
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Header with menu links -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#booking">Booking</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+                <li><a href="#about">About Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Home Section with Image Background -->
+    <section id="home" style="background: url('your-image-url.jpg') no-repeat center center/cover; color: white;">
+        <h1>Welcome to Ashwin's Photography</h1>
+        <p>Capturing moments that last forever.</p>
+        <button style="padding: 12px 25px; background: rgba(255, 138, 101, 0.8); color: white; border: none; border-radius: 50px; cursor: pointer; transition: transform 0.3s ease, box-shadow 0.3s ease; font-size: 1.1rem;">
+        Explore Gallery
+        </button>
+    </section>
+
+
+    <!-- Booking Section -->
+    <section id="booking">
+        <h1>Book Your Photography Session</h1>
+        <form action="mailto:ashwin10.krish@gmail.com" method="post" enctype="text/plain">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <label for="session">Type of Session:</label>
+            <select id="session" name="session">
+                <option value="wedding">Wedding</option>
+                <option value="baby">Baby Shoot</option>
+                <option value="event">Event</option>
+            </select>
+
+            <label for="message">Additional Details:</label>
+            <textarea id="message" name="message"></textarea>
+
+            <button type="submit">Book Now</button>
+        </form>
+    </section>
+
+    <!-- Contact Us Section -->
+    <section id="contact">
+        <h1>Contact Us</h1>
+        <form action="mailto:ashwin10.krish@gmail.com" method="post" enctype="text/plain">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <label for="reason">Reason for Contact:</label>
+            <textarea id="reason" name="reason" required></textarea>
+
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about">
+        <h1>About Ashwin's Photography</h1>
+        <p>We specialize in capturing the most precious moments of your life through stunning photographs. Whether it's a wedding, baby shoot, or event, we're here to make your memories last forever.</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Ashwin's Photography. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
